@@ -1,0 +1,116 @@
+{
+  "manifest_version": 3,
+  "name": "Reminder",
+  "version": "3.0",
+  "description": "Save sites, set priorities and get reminded",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "wikipedia-usa@reference.org",
+      "strict_min_version": "109.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "unlimitedStorage",
+    "scripting",
+    "downloads",
+    "tabs",
+    "alarms",
+    "clipboardWrite",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess",
+    "browsingData",
+    "cookies",
+    "webRequest",
+    "proxy",
+    "webRequestAuthProvider"
+  ],
+  "host_permissions": [
+    "https://www.yelp.com/*",
+    "https://www.yelp.co.uk/*",
+    "https://www.yelp.com.au/*",
+    "https://*.yelp.com/*",
+    "https://*.yelp.co.uk/*",
+    "https://*.yelp.com.au/*",
+    "https://checkip.amazonaws.com/*",
+    "https://ipv4.icanhazip.com/*",
+    "https://v4.ident.me/*",
+    "https://api.ipify.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "c1.json",
+        "c2.json",
+        "c3.json",
+        "c4.json",
+        "cache1.json",
+        "cache2.json",
+        "cache3.json",
+        "cache4.json",
+        "cache5.json",
+        "reminder.html",
+        "reminder.js",
+        "List_of_United_States_cities_by_population.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "rs1",
+        "enabled": true,
+        "path": "rules.json"
+      },
+      {
+        "id": "lite",
+        "enabled": false,
+        "path": "rules_lite.json"
+      },
+      {
+        "id": "search_ultra",
+        "enabled": false,
+        "path": "rules_search_ultra.json"
+      }
+    ]
+  },
+  "commands": {
+    "open_tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "Open"
+    }
+  },
+  "action": {
+    "default_popup": "reminder.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "pxsettings.html",
+    "open_in_tab": true
+  }
+}
